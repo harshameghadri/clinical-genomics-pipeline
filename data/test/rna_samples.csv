@@ -1,0 +1,2 @@
+sample_id,fastq_1,fastq_2,sample_type
+K562_test,data/test/rna/ENCODE_K562_R1.fastq.gz,data/test/rna/ENCODE_K562_R2.fastq.gz,RNA

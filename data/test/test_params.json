@@ -1,0 +1,9 @@
+{
+    "dna_samples": "data/test/dna_samples.csv",
+    "rna_samples": "data/test/rna_samples.csv", 
+    "reference": "data/test/reference",
+    "outdir": "results/test_run",
+    "anonymize_samples": true,
+    "threads": 2,
+    "memory": "4.GB"
+}

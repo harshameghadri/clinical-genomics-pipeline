@@ -1,0 +1,23 @@
+Bootstrap: docker
+From: google/deepvariant:1.5.0
+
+%labels
+    Author Clinical Genomics Team
+    Version 1.0.0
+    Description DeepVariant for variant calling
+
+%post
+    # DeepVariant is already installed in the base image
+    # Add any additional tools if needed
+    
+    # Install bcftools for post-processing
+    apt-get update && apt-get install -y \
+        bcftools \
+        tabix \
+        && rm -rf /var/lib/apt/lists/*
+
+%environment
+    export PATH=/opt/deepvariant/bin:$PATH
+
+%runscript
+    exec run_deepvariant "$@"

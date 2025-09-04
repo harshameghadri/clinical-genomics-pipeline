@@ -1,0 +1,34 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    Author Clinical Genomics Team
+    Version 1.0.0
+    Description STAR aligner for RNA-seq
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    
+    # Install dependencies
+    apt-get update && apt-get install -y \
+        build-essential \
+        cmake \
+        git \
+        zlib1g-dev \
+        samtools \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Install STAR
+    cd /opt
+    git clone https://github.com/alexdobin/STAR.git
+    cd STAR/source
+    make STAR -j 4
+    
+    # Make available in PATH
+    ln -s /opt/STAR/source/STAR /usr/local/bin/
+
+%environment
+    export PATH=/opt/STAR/source:$PATH
+
+%runscript
+    exec STAR "$@"

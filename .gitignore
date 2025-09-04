@@ -1,0 +1,133 @@
+# Clinical Genomics Pipeline .gitignore
+
+# Nextflow execution files
+work/
+.nextflow*
+*.html
+*.svg
+*.txt
+!README.txt
+!requirements.txt
+
+# Results and output directories
+results/
+output/
+outputs/
+logs/
+
+# Container images and cache
+*.sif
+*.img
+containers/*.sif
+containers/*.img
+containers/build/
+.apptainer/
+.singularity/
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Database files (keep schemas, exclude actual DBs)
+*.duckdb
+*.db
+*.sqlite
+*.sqlite3
+
+# Large data files (users should download separately)
+data/reference/
+data/samples/
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.sam
+*.cram
+*.vcf
+*.vcf.gz
+*.gvcf
+*.gvcf.gz
+*.bed
+*.bed.gz
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# AWS and cloud credentials
+.aws/
+aws-credentials.txt
+*.pem
+*.key
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+
+# Log files (except specific ones we want to keep)
+*.log
+!pipeline_setup.log
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Documentation build
+docs/_build/
+site/
+
+# Local configuration overrides
+local.config
+my_params.json
+*_local.*
+
+# Secrets and credentials
+secrets/
+credentials/
+.secrets
+.credentials
+
+# Test outputs (keep test setup scripts)
+test_results/
+test_output/
+data/test/*.fastq.gz
+data/test/*.bam
+data/test/*.vcf.gz
+
+# Keep important empty directories with placeholder files
+!data/test/.gitkeep
+!data/reference/.gitkeep
+!results/.gitkeep

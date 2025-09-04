@@ -1,0 +1,36 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    Author Clinical Genomics Team
+    Version 1.0.0
+    Description FastQC for quality control
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    
+    # Install dependencies
+    apt-get update && apt-get install -y \
+        openjdk-11-jdk \
+        wget \
+        unzip \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Install FastQC
+    cd /opt
+    wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip
+    unzip fastqc_v0.12.1.zip
+    chmod +x FastQC/fastqc
+    
+    # Install MultiQC via pip
+    apt-get update && apt-get install -y python3-pip
+    pip3 install --no-cache-dir multiqc==1.17
+    
+    rm -rf /var/lib/apt/lists/*
+
+%environment
+    export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+    export PATH=/opt/FastQC:$PATH
+
+%runscript
+    exec fastqc "$@"

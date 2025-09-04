@@ -1,0 +1,30 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    Author Clinical Genomics Team
+    Version 1.0.0
+    Description Salmon for transcript quantification
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    
+    # Install dependencies
+    apt-get update && apt-get install -y \
+        wget \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Install Salmon
+    cd /opt
+    wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.2/salmon-1.10.2_linux_x86_64.tar.gz
+    tar -xzf salmon-1.10.2_linux_x86_64.tar.gz
+    ln -s /opt/salmon-1.10.2_linux_x86_64/bin/salmon /usr/local/bin/salmon
+    
+    # Cleanup
+    rm salmon-1.10.2_linux_x86_64.tar.gz
+
+%environment
+    export PATH=/opt/salmon-1.10.2_linux_x86_64/bin:$PATH
+
+%runscript
+    exec salmon "$@"

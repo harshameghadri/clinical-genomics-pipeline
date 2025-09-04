@@ -1,0 +1,53 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    Author Clinical Genomics Team
+    Version 1.0.0
+    Description Base container with common tools
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    
+    # Update and install base packages
+    apt-get update && apt-get install -y \
+        wget \
+        curl \
+        git \
+        build-essential \
+        cmake \
+        zlib1g-dev \
+        libbz2-dev \
+        liblzma-dev \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        python3 \
+        python3-pip \
+        python3-dev \
+        openjdk-11-jdk \
+        samtools \
+        bcftools \
+        tabix \
+        parallel \
+        pigz \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Install Python packages
+    pip3 install --no-cache-dir \
+        pandas \
+        numpy \
+        scipy \
+        matplotlib \
+        seaborn \
+        duckdb \
+        pysam \
+        biopython \
+        hashlib \
+        checksumdir
+
+%environment
+    export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+    export PATH=/opt/tools/bin:$PATH
+
+%runscript
+    echo "Base genomics container ready"

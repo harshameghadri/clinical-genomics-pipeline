@@ -1,0 +1,41 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    Author Clinical Genomics Team
+    Version 1.0.0
+    Description DuckDB for metadata management
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    
+    # Install dependencies
+    apt-get update && apt-get install -y \
+        python3 \
+        python3-pip \
+        wget \
+        unzip \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Install DuckDB CLI
+    cd /opt
+    wget https://github.com/duckdb/duckdb/releases/download/v0.9.2/duckdb_cli-linux-amd64.zip
+    unzip duckdb_cli-linux-amd64.zip
+    chmod +x duckdb
+    ln -s /opt/duckdb /usr/local/bin/duckdb
+    
+    # Install Python DuckDB
+    pip3 install --no-cache-dir \
+        duckdb==0.9.2 \
+        pandas \
+        numpy \
+        pyarrow
+    
+    # Cleanup
+    rm duckdb_cli-linux-amd64.zip
+
+%environment
+    export PATH=/opt:$PATH
+
+%runscript
+    exec duckdb "$@"

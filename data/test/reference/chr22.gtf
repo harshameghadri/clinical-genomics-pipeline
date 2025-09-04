@@ -1,0 +1,4 @@
+chr22	test	gene	1000	2000	.	+	.	gene_id "GENE001"; gene_name "TEST_GENE1"; gene_biotype "protein_coding";
+chr22	test	transcript	1000	2000	.	+	.	gene_id "GENE001"; transcript_id "TRANS001"; gene_name "TEST_GENE1"; gene_biotype "protein_coding";
+chr22	test	exon	1000	1200	.	+	.	gene_id "GENE001"; transcript_id "TRANS001"; exon_number "1";
+chr22	test	exon	1800	2000	.	+	.	gene_id "GENE001"; transcript_id "TRANS001"; exon_number "2";

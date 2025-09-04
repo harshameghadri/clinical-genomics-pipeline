@@ -1,0 +1,2 @@
+sample_id,fastq_1,fastq_2,sample_type
+NA12878_test,data/test/dna/NA12878_chr22_R1.fastq.gz,data/test/dna/NA12878_chr22_R2.fastq.gz,DNA

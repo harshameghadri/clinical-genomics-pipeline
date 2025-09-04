@@ -1,0 +1,37 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+    Author Clinical Genomics Team
+    Version 1.0.0
+    Description BWA-MEM2 for DNA alignment
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    
+    # Install dependencies
+    apt-get update && apt-get install -y \
+        build-essential \
+        cmake \
+        git \
+        zlib1g-dev \
+        libbz2-dev \
+        liblzma-dev \
+        samtools \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Install BWA-MEM2
+    cd /opt
+    git clone --recursive https://github.com/bwa-mem2/bwa-mem2
+    cd bwa-mem2
+    make -j 4
+    
+    # Make available in PATH
+    ln -s /opt/bwa-mem2/bwa-mem2 /usr/local/bin/
+    ln -s /opt/bwa-mem2/bwa-mem2.* /usr/local/bin/
+
+%environment
+    export PATH=/opt/bwa-mem2:$PATH
+
+%runscript
+    exec bwa-mem2 "$@"
