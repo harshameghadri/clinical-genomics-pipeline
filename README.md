@@ -1,10 +1,10 @@
 # Clinical Genomics Pipeline v1.0.0
 
-[![CI/CD Pipeline](https://github.com/your-username/clinical-genomics-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/clinical-genomics-pipeline/actions/workflows/ci.yml)
+[![CI/CD Pipeline](https://github.com/harshameghadri/clinical-genomics-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/harshameghadri/clinical-genomics-pipeline/actions/workflows/ci.yml)
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A522.10.0-23aa62.svg)](https://www.nextflow.io/)
 [![Docker](https://img.shields.io/badge/docker-enabled-0db7ed.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![GitHub release](https://img.shields.io/github/release/your-username/clinical-genomics-pipeline.svg)](https://github.com/your-username/clinical-genomics-pipeline/releases/)
+[![GitHub release](https://img.shields.io/github/release/harshameghadri/clinical-genomics-pipeline.svg)](https://github.com/harshameghadri/clinical-genomics-pipeline/releases/)
 
 An open-source, fully reproducible workflow integrating genomics (DNA) and transcriptomics (RNA) analysis for clinical applications.
 
@@ -335,10 +335,10 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/your-username/clinical-genomics-pipeline/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/clinical-genomics-pipeline/discussions)  
-- **Documentation**: [Wiki](https://github.com/your-username/clinical-genomics-pipeline/wiki)
-- **Releases**: [Release Notes](https://github.com/your-username/clinical-genomics-pipeline/releases)
+- **Issues**: [GitHub Issues](https://github.com/harshameghadri/clinical-genomics-pipeline/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/harshameghadri/clinical-genomics-pipeline/discussions)  
+- **Documentation**: [Wiki](https://github.com/harshameghadri/clinical-genomics-pipeline/wiki)
+- **Releases**: [Release Notes](https://github.com/harshameghadri/clinical-genomics-pipeline/releases)
 
 ---
 
