@@ -107,8 +107,9 @@ class TestDuckDBSchema:
     
     def test_create_database_schema(self):
         """Test DuckDB schema creation"""
-        with tempfile.NamedTemporaryFile(suffix='.duckdb') as tmp_db:
-            conn = duckdb.connect(tmp_db.name)
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_path = os.path.join(tmp_dir, 'test.duckdb')
+            conn = duckdb.connect(db_path)
             
             # Create schema (from duckdb.nf process)
             schema_sql = '''
@@ -156,8 +157,9 @@ class TestDuckDBSchema:
     
     def test_metadata_queries(self):
         """Test metadata query operations"""
-        with tempfile.NamedTemporaryFile(suffix='.duckdb') as tmp_db:
-            conn = duckdb.connect(tmp_db.name)
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            db_path = os.path.join(tmp_dir, 'test_queries.duckdb')
+            conn = duckdb.connect(db_path)
             
             # Setup test data
             conn.execute('''
